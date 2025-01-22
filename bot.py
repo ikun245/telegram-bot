@@ -66,7 +66,7 @@ async def check_subscriptions(context):
         expiry_time = join_time + timedelta(days=1)
         if current_time >= expiry_time:
             try:
-                await ban_user(application, user_id, '-1002478653784')
+                await ban_user(application, user_id, '填写群组chat_id,样式应该是-开头，例如-12345')
             except Exception as e:
                 logging.error(f"踢出用户 {user_id} 失败: {e}")
 
@@ -148,7 +148,7 @@ async def reduce_time(update: Update, context):
         await update.message.reply_text(f"操作失败：{e}")
 
 def main():
-    application = Application.builder().token("7669989042:AAE97rIuUE2_99VZfQV6IBkUEPaoXL5wsfo").build()
+    application = Application.builder().token("填写telegram bot 的 密钥").build()
 
     application.add_handler(CommandHandler("start", start))
     application.add_handler(MessageHandler(filters.StatusUpdate.NEW_CHAT_MEMBERS, user_join))
